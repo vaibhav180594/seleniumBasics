@@ -10,7 +10,7 @@ public class selenium001 {
         driver.get("https://app.vwo.com");
         driver.navigate().to("https://app.vwo.com");
         //driver.close();
-        driver.quit();
+       // driver.quit();
 
     }
 
