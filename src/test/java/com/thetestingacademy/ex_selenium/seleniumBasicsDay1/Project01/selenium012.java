@@ -18,7 +18,6 @@ public class selenium012 {
 
         Assert.assertEquals(driver.getTitle(), ("CURA Healthcare Service"));
         Assert.assertEquals(driver.getCurrentUrl(), ("https://katalon-demo-cura.herokuapp.com/"));
-
         driver.quit();
     }
 

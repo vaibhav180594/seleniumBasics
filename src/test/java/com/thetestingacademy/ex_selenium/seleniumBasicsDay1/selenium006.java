@@ -1,5 +1,6 @@
 package com.thetestingacademy.ex_selenium.seleniumBasicsDay1;
 
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -25,9 +26,17 @@ public class selenium006 {
     edgeOptions.addArguments("--start-maximized");
     edgeOptions.addArguments("--incognito");
     edgeOptions.addArguments("--window-size=800,600");
+    edgeOptions.addArguments("--guest");
+
+    // Proxy is needed to hide your information
+    Proxy proxy = new Proxy();
+    proxy.setHttpProxy("181.143.181.34:8080");
+    edgeOptions.setCapability("proxy", proxy);
 
     EdgeDriver driver = new EdgeDriver(edgeOptions);
     driver.get("https://google.com");
+
+    driver.get("https://whatismyipaddress.com/");
 
     // if you do not maximize with the argument then you can use following method
    ChromeDriver cd = new ChromeDriver();
