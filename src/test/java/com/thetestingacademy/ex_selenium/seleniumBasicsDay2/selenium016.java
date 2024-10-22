@@ -39,6 +39,8 @@ public class selenium016 {
             throw new RuntimeException(e);
         }
 
+        driver.navigate().back();
+
         driver.quit();
     }
 
