@@ -18,13 +18,11 @@ public class selenium020 {
 
         driver.findElement(By.className("text-link")).click();
         driver.findElement(By.name("email")).sendKeys("test@test.com");
-        driver.findElement(By.id("page-122cu-gdpr-consent-checkbox")).click();
+        driver.findElement(By.name("gdpr_consent_checkbox")).click();
         List<WebElement> createAccount = driver.findElements(By.tagName("button"));
         createAccount.get(0).click();
 
-
-
-        driver.quit();
+//        driver.quit();
     }
 
 }

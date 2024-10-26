@@ -20,18 +20,20 @@ public class selenium019 {
 
         driver.findElement(By.name("firstname")).sendKeys("John");
         driver.findElement(By.name("lastname")).sendKeys("Doe");
-        driver.findElement(By.id("input-email")).sendKeys("Test@test.com");
+        driver.findElement(By.id("input-email")).sendKeys("Matimes@mt.com");
         driver.findElement(By.name("telephone")).sendKeys("02228508246");
         driver.findElement(By.id("input-password")).sendKeys("Password123");
         driver.findElement(By.name("confirm")).sendKeys("Password123");
         driver.findElement(By.name("newsletter")).click();
 
         driver.findElement(By.name("agree")).click();
+        driver.findElement(By.xpath("//input[@class='btn btn-primary' and @value='Continue']")).click();
+        driver.findElement(By.xpath("//a[@class='btn btn-primary']")).click();
+        WebElement errorMessage = driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']"));
 
+       // Assert.assertEquals(errorMessage.getText(), "//div[@class='alert alert-danger alert-dismissible']");
 
-
-
-        driver.quit();
+//        driver.quit();
     }
 
 }
