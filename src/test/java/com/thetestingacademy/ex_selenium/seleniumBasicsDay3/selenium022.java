@@ -37,13 +37,13 @@ public class selenium022 {
         // name="username"
         // type="email">
 
-//        WebElement username_input_id = driver.findElement(By.id("username"));
-        WebElement username_input_xpath = driver.findElement(By.xpath("//input[@id='username']"));
+        WebElement username_input_id = driver.findElement(By.id("username"));
+//        WebElement username_input_xpath = driver.findElement(By.xpath("//input[@id='username']"));
 //        WebElement username_input_css_1 = driver.findElement(By.cssSelector("input#username"));
 //        WebElement username_input_css_2 = driver.findElement(By.cssSelector("#username"));
 //        WebElement username_input_name = driver.findElement(By.name("username"));
 
-        username_input_xpath.sendKeys("augtest_040823@idrive.com");
+        username_input_id.sendKeys("augtest_040823@idrive.com");
 
         WebElement password_input_xpath = driver.findElement(By.xpath("//input[@id='password']"));
         password_input_xpath.sendKeys("123456");
