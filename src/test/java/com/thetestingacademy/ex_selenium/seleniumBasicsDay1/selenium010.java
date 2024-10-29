@@ -15,13 +15,14 @@ public class selenium010 {
         EdgeDriver driver = new EdgeDriver();
         //driver.get("https://sdet.live");
         // No back, forward allowed in case of get
-
+        driver.manage().window().maximize();
         driver.navigate().to("https://bing.com");
         driver.navigate().to("https://sdet.live");
-        driver.navigate().to("https://app.vwo.com");
         driver.navigate().back();
+        driver.navigate().to("https://app.vwo.com");
         driver.navigate().refresh();
         driver.navigate().forward();
+        driver.quit();
     }
 
 }

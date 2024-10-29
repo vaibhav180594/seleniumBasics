@@ -8,7 +8,7 @@ public class selenium003 {
     @Test
     public void testMethod(){
 
-//        Import Concept of OOPs ->
+//        Important Concepts of OOPs ->
 //         Upcasting -> Dynamic Dispatch - Poly
 
 //         In Selenium 3 -

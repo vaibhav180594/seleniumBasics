@@ -1,4 +1,4 @@
-package com.thetestingacademy.ex_selenium.seleniumBasicsDay3;
+package com.thetestingacademy.ex_selenium.seleniumBasicsDay4;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
@@ -12,11 +12,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class selenium023 {
+public class selenium026 {
 
     @Description("Verify that Ebay print the prices of mac")
     @Test
     public void test_verify_print_imac_price(){
+
+        // Adding Implicit Wait - Line 36
 
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--start-maximized");

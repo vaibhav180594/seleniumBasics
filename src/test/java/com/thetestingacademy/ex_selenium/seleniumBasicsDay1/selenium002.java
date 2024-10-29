@@ -9,8 +9,8 @@ public class selenium002 {
         FirefoxDriver driver = new FirefoxDriver();
         driver.get("https://app.vwo.com");
         driver.navigate().to("https://app.vwo.com");
-        //driver.close();
-        driver.quit();
+//        driver.close();
+//        driver.quit();
 
     }
 

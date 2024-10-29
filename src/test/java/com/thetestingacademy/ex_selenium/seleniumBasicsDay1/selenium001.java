@@ -7,7 +7,7 @@ public class selenium001 {
     public static void main(String[] args) {
 
         ChromiumDriver driver = new ChromeDriver();
-        driver.get("https://app.vwo.com");
+//        driver.get("https://app.vwo.com");
         driver.navigate().to("https://app.vwo.com");
         //driver.close();
        // driver.quit();
