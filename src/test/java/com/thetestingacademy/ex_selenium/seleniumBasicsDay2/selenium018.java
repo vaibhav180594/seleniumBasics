@@ -34,7 +34,7 @@ public class selenium018 {
 
         driver.findElement(By.linkText("Privacy Policy")).click();
 
-//        driver.findElement(By.linkText("Terms")).click();
+        driver.findElement(By.linkText("Terms")).click();
 
 
         driver.quit();
