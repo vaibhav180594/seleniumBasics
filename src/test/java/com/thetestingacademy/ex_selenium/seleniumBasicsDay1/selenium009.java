@@ -11,6 +11,7 @@ public class selenium009 {
     EdgeDriver driver = new EdgeDriver();
     driver.get("https://sdet.live");
 
+    // What is the difference between close and quit method?
     // driver.close();
         // Close the Current Browser Window - not the full browser
         // Closed the window, Session id != null, Error - Invalid session ID

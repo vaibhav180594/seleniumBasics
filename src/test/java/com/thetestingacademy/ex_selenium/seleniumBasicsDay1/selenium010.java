@@ -7,7 +7,7 @@ public class selenium010 {
 
     // what is the difference between get amd navigate().to()?
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--start-maximized");
@@ -23,6 +23,7 @@ public class selenium010 {
         driver.navigate().refresh();
         driver.navigate().forward();
         driver.quit();
+        Thread.sleep(Long.parseLong("30000"));
     }
 
 }

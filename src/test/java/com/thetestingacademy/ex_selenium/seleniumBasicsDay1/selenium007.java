@@ -8,7 +8,7 @@ import java.io.File;
 public class selenium007 {
     public static void main(String[] args) {
 
-        // How to add extensions to the browser
+        // How to add extensions to the browser?
         // How to download CRX file of extension
         // Copy the URL of extension  eg. https://chromewebstore.google.com/detail/adblock-%E2%80%94-block-ads-acros/gighmmpiobklfepjocnamgkkbiglidom
         // go to the https://crxextractor.com/ website paste the extension URL and you can download this as a CRX file
