@@ -37,7 +37,7 @@ public class selenium018 {
         driver.findElement(By.linkText("Terms")).click();
 
 
-        driver.quit();
+//        driver.quit();
 
     }
 

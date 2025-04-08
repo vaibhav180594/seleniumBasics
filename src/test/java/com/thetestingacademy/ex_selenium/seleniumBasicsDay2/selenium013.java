@@ -20,7 +20,7 @@ public class selenium013 {
         Assert.assertEquals(driver.getTitle(),("Learn Software Testing &amp; Test Automation"));
         Assert.assertEquals(driver.getCurrentUrl(),("https://courses.thetestingacademy.com/"));
 
-        driver.quit();
+//        driver.quit();
     }
 
 }

@@ -21,19 +21,24 @@ public class practiceLab001 {
     public void test1(){
 
         WebDriver driver = new EdgeDriver();
-        driver.get("https://awesomeqa.com/ui/index.php?route=account/register");
+        driver.get("https://app.vwo.com/#/login");
         driver.manage().window().maximize();
 
-//        driver.findElement(By.name("firstname")).sendKeys("Vaibhav");
-//        driver.findElement(By.name("lastname")).sendKeys("Shinde");
-//        driver.findElement(By.id("input-email")).sendKeys("vaibhavh@gmail.com");
-//        driver.findElement(By.id("input-telephone")).sendKeys("02228508246");
-//        driver.findElement(By.name("password")).sendKeys("Vaibhav123");
-//        driver.findElement(By.name("confirm")).sendKeys("Vaibhav123");
-//        driver.findElement(By.name("newsletter")).click();
+        driver.findElement(By.name("username")).sendKeys("abcd@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("123456");
+        driver.findElement(By.id("js-login-btn")).click();
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
-//        driver.quit();
+        WebElement errorMessage = driver.findElement(By.className("notification-box-description"));
+        System.out.println(errorMessage.getText());
+        Assert.assertEquals(errorMessage.getText(), "Your email, password, IP address or location did not match");
+
+        driver.quit();
     }
 
 }
