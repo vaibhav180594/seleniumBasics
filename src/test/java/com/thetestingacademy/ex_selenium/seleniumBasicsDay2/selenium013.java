@@ -15,7 +15,9 @@ public class selenium013 {
         EdgeDriver driver = new EdgeDriver(edgeOptions);
         driver.get("https://sdet.live");
 
-//        System.out.println(driver.getPageSource());
+        System.out.println(driver.getPageSource());
+        System.out.println("Current URL is: "  + driver.getCurrentUrl());
+        System.out.println("Title is: " + driver.getTitle());
 
         Assert.assertEquals(driver.getTitle(),("Learn Software Testing &amp; Test Automation"));
         Assert.assertEquals(driver.getCurrentUrl(),("https://courses.thetestingacademy.com/"));

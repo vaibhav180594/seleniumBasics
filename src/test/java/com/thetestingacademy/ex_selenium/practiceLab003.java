@@ -1,42 +1,74 @@
 package com.thetestingacademy.ex_selenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import io.qameta.allure.Description;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chromium.ChromiumDriver;
-import org.openqa.selenium.json.JsonOutput;
-import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.time.chrono.ChronoPeriod;
 import java.util.List;
 
 public class practiceLab003 {
+    WebDriver driver;
+    @BeforeTest
+    public void openBrowser(){
+        ChromeOptions options = new ChromeOptions();
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.addArguments("guest");
+        driver = new ChromeDriver(options);
+    }
 
+    @Description(" Web table ")
     @Test
-    public void testPageTitle() {
-
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://awesomeqa.com/ui/index.php?route=account/register");
+    public void shadowDOM() throws InterruptedException {
         driver.manage().window().maximize();
+        String URL = "https://awesomeqa.com/webtable.html";
+        driver.get(URL);
 
-        driver.findElement(By.name("firstname")).sendKeys("Vaibhav");
-        driver.findElement(By.id("input-lastname")).sendKeys("Shinde");
-        driver.findElement(By.name("email")).sendKeys("vaibhav113@gmail.com");
-        driver.findElement(By.id("input-telephone")).sendKeys("02228508246");
-        driver.findElement(By.name("password")).sendKeys("123456");
-        driver.findElement(By.name("confirm")).sendKeys("123456");
-        driver.findElement(By.xpath("//input[@name='newsletter' and @value=0]")).click();
-        driver.findElement(By.name("agree")).click();
-        driver.findElement(By.xpath("//input[@class='btn btn-primary']")).click();
+        int row = driver.findElements(By.xpath("//table[@id='customers']/tbody/tr")).size();
+        int col = driver.findElements(By.xpath("//table[@id='customers']/tbody/tr[2]/td")).size();
 
-        if (driver.getPageSource().contains("Your Account Has Been Created!")){
-            System.out.println("Account Created");
-        } else {
-            System.out.println("Not created");
+        System.out.println("Count of row is = " + row);
+        System.out.println("Count of column is = " + col);
+
+        String firstPart = "//table[@id='customers']/tbody/tr[";
+        String secondPart = "]/td[";
+        String thirdPart = "]";
+
+        for (int i = 2; i < row; i++) {
+            for (int j = 1; j < col; j++) {
+                String dynamicXPath = firstPart + i + secondPart + j + thirdPart;
+                String data = driver.findElement(By.xpath(dynamicXPath)).getText();
+//                System.out.println(data);
+
+                if (data.contains("Helen Bennett")){
+                    String countryPath = dynamicXPath + "/following-sibling :: td";
+                    String CompanyPath = dynamicXPath + "/following-sibling :: td";
+
+                    String countryText = driver.findElement(By.xpath(countryPath)).getText();
+                    String companyText = driver.findElement(By.xpath(CompanyPath)).getText();
+
+                    System.out.println("-----------------------");
+
+                    System.out.println("Helen Bennett is In - " + countryText);
+                    System.out.println("Helen Bennett is Company - " + companyText);
+                }
+
+            }
+        }
+    }
+
+    @AfterTest
+    public void closeBrowser(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
         driver.quit();
     }
+
 }

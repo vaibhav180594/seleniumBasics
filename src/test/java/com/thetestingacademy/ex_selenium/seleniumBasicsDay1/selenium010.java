@@ -12,10 +12,10 @@ public class selenium010 {
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--start-maximized");
 
-        EdgeDriver driver = new EdgeDriver();
+        EdgeDriver driver = new EdgeDriver(edgeOptions);
         //driver.get("https://sdet.live");
         // No back, forward allowed in case of get
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.navigate().to("https://bing.com");
         driver.navigate().to("https://sdet.live");
         driver.navigate().back();

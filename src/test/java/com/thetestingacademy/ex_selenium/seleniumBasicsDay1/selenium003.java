@@ -15,7 +15,7 @@ public class selenium003 {
 //         System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
 
 //         In Selenium 4
-//         Opera Remove - No usage of the setProperty
+//         Opera is Removed, and No usage of the setProperty due to the architectural change
 
 //        WebDriver driver = new EdgeDriver();
 //        WebDriver driver2 = new ChromeDriver();

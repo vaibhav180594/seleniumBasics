@@ -1,36 +1,29 @@
-package com.thetestingacademy.ex_selenium.seleniumBasicsDay2;
+package com.thetestingacademy.ex_selenium.seleniumBasicsDay5;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class selenium015 {
-    //Locators - Find the web elements
-    //Open the URL app.vwo.com/#/login](https://app.vwo.com/#/login)
-    //Find the Email id** and enter the email as admin@admin.com
-    //Find the pass inputbox** and enter passwrod as admin.
-    //Find and Click on the submit button
-    //Verify that the error message is shown "Your email, password, IP address or location did not match"
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-    @Description("Verify that with invalid email, pass, error message is shown on the app.vwo.com")
+public class selenium028 {
+    // Explicit Wait
+
+    @Description("Explicit Wait")
     @Test
     public void testVwoLoginNegative(){
-        // How to find the elements
-        // Selenium
-        // ID, NAME, CLASS NAME, TAGName,
-        // Advance -> Css Selector, Xpath
-
         EdgeOptions edgeOptions = new EdgeOptions();
         edgeOptions.addArguments("--guest");
         edgeOptions.addArguments("--start-maximized");
-
-        // FindElement -> 1 element first web element
-        // FindElements -> which can find multiple web elements
 
         WebDriver driver = new EdgeDriver(edgeOptions);
         driver.navigate().to("https://app.vwo.com/#/login");
@@ -41,28 +34,29 @@ public class selenium015 {
         Assert.assertEquals(driver.getTitle(), "Login - VWO");
         Assert.assertEquals(driver.getCurrentUrl(), "https://app.vwo.com/#/login");
 
-        // Find the email and password input box and enter the email and password
-             //<input type="email" class="text-input W(100%)" name="username" id="login-username" data-qa="hocewoqisi">
         WebElement emailInputBox = driver.findElement(By.id("login-username"));
         emailInputBox.sendKeys("admin@admin.com");
 
-            //<input type="password" class="text-input W(100%)" name="password" id="login-password" data-qa="jobodapuxe">
         WebElement passwordInputBox = driver.findElement(By.name("password"));
         passwordInputBox.sendKeys("password@321");
 
-            //Finding the Sign In button
         WebElement buttonSubmit = driver.findElement(By.id("js-login-btn"));
         buttonSubmit.click();
 
-        //After 3 seconds error comes
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        //Finding the error message element
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+
         WebElement error_message = driver.findElement(By.className("notification-box-description"));
+            // Explicit Wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(error_message));
+        wait.until(ExpectedConditions.textToBePresentInElement(error_message, "Your email, password, IP address or location did not match"));
         System.out.println(error_message.getText());
         Assert.assertEquals(error_message.getText(), ("Your email, password, IP address or location did not match"));
 

@@ -21,7 +21,7 @@ public class selenium019 {
 
         driver.findElement(By.name("firstname")).sendKeys("Vaibhav");
         driver.findElement(By.id("input-lastname")).sendKeys("Shinde");
-        driver.findElement(By.name("email")).sendKeys("vaibhav113@gmail.com");
+        driver.findElement(By.name("email")).sendKeys("vaibhav115@gmail.com");
         driver.findElement(By.id("input-telephone")).sendKeys("02228508246");
         driver.findElement(By.name("password")).sendKeys("123456");
         driver.findElement(By.name("confirm")).sendKeys("123456");
@@ -34,6 +34,6 @@ public class selenium019 {
         } else {
             System.out.println("Not created");
         }
-        driver.quit();
+//        driver.quit();
     }
 }

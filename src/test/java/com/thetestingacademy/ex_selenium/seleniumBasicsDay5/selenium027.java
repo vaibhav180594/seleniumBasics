@@ -1,19 +1,18 @@
-package com.thetestingacademy.ex_selenium.seleniumBasicsDay4;
+package com.thetestingacademy.ex_selenium.seleniumBasicsDay5;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class selenium025 {
-    // #no-such-element-exception
-    // Error: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-    // Difference between Tread.sleep and "driver.manage().timeouts().implicitlyWait()"
-
+public class selenium027 {
+// Implicit Wait
     @Description("Implicit Wait")
     @Test
     public void test_verify_print_imac_price() {
@@ -36,8 +35,4 @@ public class selenium025 {
         driver.findElement(By.id("js-notification-box-msg"));
         driver.quit();
     }
-
 }
-
-//                Only one implicit wait is active at a time.
-//                If you set it again later in the script, it overwrites the previous one.
